@@ -215,7 +215,7 @@ download_ccu2_fw()
                 die "ERROR: Can not find specified file in repository"
             fi
             error "EQ3 site, seems to be down. Trying to download from GIT"
-            curFWdl="https://github.com/leonsio/CCU2-FW/raw/master/HM-CCU2-${BUILD}.tgz"
+            curFWdl="https://github.com/sulrich423/CCU2-FW/raw/master/HM-CCU2-${BUILD}.tgz"
         }
     fi
     # Falls die FW unter aktuellen liegt, aus dem GIT runterladen (archiv)
@@ -225,7 +225,7 @@ download_ccu2_fw()
         then
             die "ERROR: Can not find specified version in repository"
         fi
-        curFWdl="https://github.com/leonsio/CCU2-FW/raw/master/HM-CCU2-${BUILD}.tgz"
+        curFWdl="https://github.com/sulrich423/CCU2-FW/raw/master/HM-CCU2-${BUILD}.tgz"
     fi
     # Sollte nicht vorkommen
     if [ $(ver ${BUILD}) -gt $(ver ${aBUILD}) ]
@@ -247,7 +247,7 @@ check_ccu2_archive()
     CCU2_VERSION=$1
     if [ ! -f ${YAHM_LIB}/fw.list ]
     then
-        wget $QUIET -O ${YAHM_LIB}/fw.list -N https://raw.githubusercontent.com/leonsio/CCU2-FW/master/fw.list
+        wget $QUIET -O ${YAHM_LIB}/fw.list -N https://raw.githubusercontent.com/sulrich423/CCU2-FW/master/fw.list
     fi
     ALL_FW=$(cat ${YAHM_LIB}/fw.list | grep -Po '(?<=CCU2-)\d.\d\d?.\d\d?')
     [[ $ALL_FW =~ $CCU2_VERSION ]] && echo 1 || echo 0

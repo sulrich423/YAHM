@@ -180,7 +180,7 @@ _lxc()
         if [ ! -f /var/lib/yahm/fw.list ]
         then
             cd /var/lib/yahm/
-            wget -q -N https://raw.githubusercontent.com/leonsio/CCU2-FW/master/fw.list
+            wget -q -N https://raw.githubusercontent.com/sulrich423/CCU2-FW/master/fw.list
         fi
         ALL_FW=$(cat /var/lib/yahm/fw.list | grep -Po '(?<=CCU2-)\d.\d\d?.\d\d?')
         COMPREPLY=( $(compgen -W "${ALL_FW}" -- $cur) )
