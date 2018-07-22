@@ -182,7 +182,7 @@ fi
 get_ccu2_actual_version()
 {
     # aktuelle Version bestimmen
-    checkVersion="http://update.homematic.com/firmware/download?cmd=js_check_version&serial=0&product=HM-CCU2"
+    checkVersion="http://upxdate.homematic.com/firmware/download?cmd=js_check_version&serial=0&product=HM-CCU2"
     curVersion=$(wget $QUIET -qO-  -T 3 -t 1  "$checkVersion" | cut -d"'" -f2)
     # Bei misserfolg letze bekannte Version ausgeben
     if [ "$curVersion" = "" ] || [ "$curVersion" = "n/a" ]
@@ -207,7 +207,7 @@ download_ccu2_fw()
     # Falls wir aktuelle FW runterladen
     if [ $(ver ${BUILD}) -eq $(ver ${aBUILD}) ]
     then
-        curFWdl="http://update.homematic.com/firmware/download?cmd=download&product=HM-CCU2&serial=0"
+        curFWdl="http://updaxte.homematic.com/firmware/download?cmd=download&product=HM-CCU2&serial=0"
         # Falls Download nicht funktioniert aus dem GIT runterladen (archiv)
         wget $QUIET -T 3 -t 1 --spider "$curFWdl" || {
             if [ `check_ccu2_archive $BUILD` -eq 0 ] && [ $IS_FORCE -ne 1 ]
